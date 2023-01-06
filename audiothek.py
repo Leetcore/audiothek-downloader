@@ -1,7 +1,7 @@
 import argparse
 import os
-import requests
 import re
+import requests
 
 def main(url: str, folder: str):
     match = re.search(r"/(\d+)/?$", url)

@@ -1,7 +1,12 @@
 This script can download mp3s and covers from ARD audiothek.
 
-# Usage
 
+# Installation
+``` bash
+pip3 install -r setup.txt
+```
+
+# Usage
 ``` bash
 python3 audiothek.py --url 'https://www.ardaudiothek.de/sendung/2035-die-zukunft-beginnt-jetzt-scifi-mit-niklas-kolorz/12121989/'
 ```
