@@ -4,11 +4,12 @@ import requests
 import re
 
 def main(url: str, folder: str):
-    match = re.search(r"/(\d+)/", url)
+    match = re.search(r"/(\d+)/?$", url)
     if match:
         response = requests.get('https://api.ardaudiothek.de/graphql?query=query ProgramSetEpisodesQuery($id:ID!,$offset:Int!,$count:Int!){result:programSet(id:$id){items(offset:$offset first:$count orderBy:PUBLISH_DATE_DESC filter:{isPublished:{equalTo:true}}){pageInfo{hasNextPage endCursor}nodes{id title publishDate summary duration path image{url url1X1 description attribution}programSet{id title path publicationService{title genre path organizationName}}audios{url downloadUrl allowDownload}}}}}&variables={"id":"' + match.group(1) +'","offset":0,"count":999999}')
         response_json = response.json()
         nodes = response_json.get("data").get("result").get("items").get("nodes")
+        
         for index, node in enumerate(nodes):
             number = len(nodes) - index
             id = node.get("id")
@@ -56,7 +57,7 @@ if __name__ == "__main__":
         description="ARD Audiothek downloader."
     )
     parser.add_argument(
-        "--url", "-u", type=str, default="https://www.ardaudiothek.de/sendung/2035-die-zukunft-beginnt-jetzt-scifi-mit-niklas-kolorz/12121989/", help="Insert audiothek url"
+        "--url", "-u", type=str, default="", required=True, help="Insert audiothek url (https://www.ardaudiothek.de/sendung/2035-die-zukunft-beginnt-jetzt-scifi-mit-niklas-kolorz/12121989/)"
     )
     parser.add_argument(
         "--folder", "-f", type=str, default="./output", help="Folder to save all mp3s"
