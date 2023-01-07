@@ -20,11 +20,10 @@ def main(url: str, folder: str):
         })
 
         response_json = response.json()
-        print(response_json)
         nodes = response_json.get("data").get("result").get("items").get("nodes")
         
         for index, node in enumerate(nodes):
-            number = index + 1
+            number = node["id"]
 
             id = node.get("id")
             title = node.get("title")
@@ -36,7 +35,7 @@ def main(url: str, folder: str):
             else:
                 filename = id
             
-            filename = str(number) + "_" + filename
+            filename = filename + "_" + str(number)
 
             # get image information
             image_url = node.get("image").get("url")

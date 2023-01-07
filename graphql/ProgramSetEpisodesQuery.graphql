@@ -1,6 +1,10 @@
 query ProgramSetEpisodesQuery($id:ID!){
     result:programSet(id:$id){
-        items(orderBy:PUBLISH_DATE_ASC){
+        items(orderBy:PUBLISH_DATE_DESC filter:{
+            isPublished:{
+                equalTo:true
+            }
+        }) {
             nodes {
                 id
                 title
