@@ -1,0 +1,22 @@
+query ProgramSetEpisodesQuery($id:ID!){
+    result:programSet(id:$id){
+        items(orderBy:PUBLISH_DATE_ASC){
+            nodes {
+                id
+                title
+
+                image {
+                    url
+                }
+
+                programSet {
+                    id
+                }
+
+                audios {
+                    downloadUrl
+                }
+            }
+        }
+    }
+}
