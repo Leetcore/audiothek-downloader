@@ -7,7 +7,7 @@ pip3 install -r setup.txt
 
 # Usage
 ``` bash
-python3 audiothek.py --url 'https://www.ardaudiothek.de/sendung/2035-die-zukunft-beginnt-jetzt-scifi-mit-niklas-kolorz/12121989/'
+python3 audiothek.py --url 'https://www.ardaudiothek.de/sendung/j-r-r-tolkien-der-herr-der-ringe-fantasy-hoerspiel-klassiker/12197351/'
 ```
 
 Can only download the first 999999 episodes! ;)
