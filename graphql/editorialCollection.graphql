@@ -1,9 +1,6 @@
-query ProgramSetEpisodesQuery($id: ID!) {
-  result: programSet(id: $id) {
-    items(
-      orderBy: PUBLISH_DATE_DESC
-      filter: { isPublished: { equalTo: true } }
-    ) {
+query EpisodesQuery($id: ID!) {
+  result: editorialCollection(id: $id) {
+    items {
       nodes {
         id
         title
@@ -16,7 +13,6 @@ query ProgramSetEpisodesQuery($id: ID!) {
           id
           path
         }
-
         audios {
           downloadUrl
         }

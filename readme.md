@@ -1,6 +1,5 @@
 This script can download mp3s and covers from ARD audiothek.
 
-
 # Installation
 ``` bash
 pip3 install -r setup.txt
