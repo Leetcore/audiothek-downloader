@@ -20,3 +20,11 @@ Can only download the first 999999 episodes! ;)
 
 # Installation problems?
 Try this solution: https://github.com/Leetcore/audiothek-downloader/issues/4
+
+```bash
+git clone "https://github.com/Leetcore/audiothek-downloader.git"
+cd audiothek-downloader
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r setup.txt
+```
