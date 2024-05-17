@@ -14,6 +14,7 @@ query EpisodesQuery($id: ID!) {
           path
         }
         audios {
+          url
           downloadUrl
         }
       }

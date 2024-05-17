@@ -50,7 +50,7 @@ def downloadEpisodes(id: str, folder: str):
         # get image information
         image_url = node.get("image").get("url")
         image_url = image_url.replace("{width}", "500")
-        mp3_url = node.get("audios")[0].get("downloadUrl")
+        mp3_url = node.get("audios")[0].get("downloadUrl") or node.get("audios")[0].get("url") 
         programset_id = node.get("programSet").get("id")
 
         program_path: str = os.path.join(folder, programset_id)
